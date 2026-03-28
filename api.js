@@ -9,7 +9,10 @@ async function generateResult(email, answers, scores, resultType) {
     },
     body: JSON.stringify({ email, answers, scores, resultType }),
   });
-  if (!res.ok) throw new Error('Generation failed');
+  if (!res.ok) {
+    const errBody = await res.text();
+    throw new Error('HTTP ' + res.status + ': ' + errBody);
+  }
   return res.json();
 }
 
