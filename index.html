@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura — Find Your Focus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- LANDING -->
+<div class="screen active" id="screen-landing">
+  <div class="landing-inner">
+    <p class="label">AURA</p>
+    <h1>Something is off.<br><em>Let's find out what.</em></h1>
+    <p class="sub">5 questions. 2 minutes. A diagnosis built around you.</p>
+    <button class="btn-primary" id="btn-start">Start</button>
+  </div>
+</div>
+
+<!-- QUIZ (Q1–Q5) -->
+<div class="screen" id="screen-quiz">
+  <div class="quiz-inner">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <p class="question-label" id="question-label">QUESTION 1 OF 5</p>
+    <h2 class="question-text" id="question-text"></h2>
+    <div class="options" id="options"></div>
+  </div>
+</div>
+
+<!-- EMAIL CAPTURE -->
+<div class="screen" id="screen-email">
+  <div class="email-inner">
+    <p class="label">ALMOST THERE</p>
+    <h2>Where should we send your results?</h2>
+    <input type="email" id="email-input" placeholder="your@email.com">
+    <button class="btn-primary" id="btn-submit-email">See my diagnosis</button>
+    <p class="disclaimer">No spam. Just your results.</p>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="screen" id="screen-loading">
+  <div class="loading-inner">
+    <div class="loader"></div>
+    <p>Building your diagnosis...</p>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div class="screen" id="screen-result">
+  <div class="result-inner">
+    <p class="label" id="result-pillar-label"></p>
+    <h1 class="result-verdict" id="result-verdict"></h1>
+    <p class="result-sub" id="result-sub"></p>
+
+    <!-- Score bars -->
+    <div class="score-bars" id="score-bars"></div>
+
+    <!-- Diagnosis -->
+    <div class="diagnosis" id="diagnosis">
+      <div class="diagnosis-block" id="block-problem">
+        <p class="block-label">THE PROBLEM</p>
+        <p class="block-text" id="text-problem"></p>
+      </div>
+      <div class="diagnosis-block paywall-blur" id="block-cause">
+        <p class="block-label">THE CAUSE</p>
+        <p class="block-text" id="text-cause"></p>
+      </div>
+      <div class="diagnosis-block paywall-blur" id="block-transformation">
+        <p class="block-label">WHAT CHANGES</p>
+        <p class="block-text" id="text-transformation"></p>
+      </div>
+    </div>
+
+    <!-- Paywall (shown for Axon/Aeon before payment) -->
+    <div class="paywall-gate" id="paywall-gate" style="display:none">
+      <p class="paywall-copy">The cause and the path forward are locked.</p>
+      <button class="btn-primary" id="btn-unlock">Unlock your full diagnosis</button>
+    </div>
+
+    <!-- Stripe payment element (injected after unlock click) -->
+    <div id="payment-element-container" style="display:none"></div>
+
+    <!-- CTA -->
+    <div class="cta-block" id="cta-block" style="display:none">
+      <p class="cta-copy" id="cta-copy"></p>
+      <a class="btn-primary" id="cta-link" href="#">→</a>
+    </div>
+
+    <!-- Skool downsell — always visible on result screen -->
+    <p class="skool-line"><a href="https://www.skool.com/lockinseason-3730" target="_blank">Not ready? The community is where this work starts.</a></p>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="scoring.js"></script>
+<script src="api.js"></script>
+<script src="result.js"></script>
+<script src="quiz.js"></script>
+</body>
+</html>
