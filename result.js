@@ -148,7 +148,7 @@ async function submitAndRender(email, answers, scores, resultType) {
     renderResult(data.sessionId, data.resultType, data.scores, data.diagnosis, data.paywalled);
   } catch (e) {
     showScreen('screen-landing');
-    alert('Something went wrong. Please try again.');
+    alert('Error: ' + e.message);
   }
 }
 
