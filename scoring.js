@@ -3,52 +3,52 @@
 const QUESTIONS = [
   {
     id: 'q1',
-    text: "What's the one thing draining you most right now?",
+    text: "What's actually draining you most right now?",
     options: [
-      { text: "My body is running on empty — low energy, bad sleep, not training", scores: { body: 3, mind: 0, soul: 0 }, depth: null },
-      { text: "My head won't switch off — brain fog, can't focus, always reactive", scores: { body: 0, mind: 3, soul: 0 }, depth: null },
-      { text: "I've lost the plot on why I'm doing any of this", scores: { body: 0, mind: 0, soul: 3 }, depth: null },
-      { text: "All three, honestly", scores: { body: 1, mind: 1, soul: 1 }, depth: null },
+      { text: "My body — low energy, carrying weight, not training consistently", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_general' },
+      { text: "My head — can't switch off, reactive, losing sharpness", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_general' },
+      { text: "My sense of self — successful on paper, but something's missing", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_general' },
+      { text: "All of it — nothing feels dialed in", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
     ]
   },
   {
     id: 'q2',
-    text: "What do you actually want?",
+    text: "What would a win look like?",
     options: [
-      { text: "Feel physically strong and in control again", scores: { body: 3, mind: 0, soul: 0 }, depth: null },
-      { text: "Think sharper, make better calls, trust my instincts", scores: { body: 0, mind: 3, soul: 0 }, depth: null },
-      { text: "Find direction, meaning, or understand myself better", scores: { body: 0, mind: 0, soul: 3 }, depth: null },
-      { text: "I want all of it — the full reset", scores: { body: 1, mind: 1, soul: 1 }, depth: null },
+      { text: "Leaner, stronger, performing physically — I want my body as an asset", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_performance' },
+      { text: "Clearer thinking, better decisions, more presence in the room", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_clarity' },
+      { text: "A clear direction — understanding what I'm actually building toward", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_direction' },
+      { text: "The full reset — all three working together", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
     ]
   },
   {
     id: 'q3',
-    text: "Where is it costing you most?",
+    text: "Where is it showing up most?",
     options: [
-      { text: "In the gym, my health, how I look and feel", scores: { body: 2, mind: 0, soul: 0 }, depth: null },
-      { text: "In my work, decisions, relationships, being present", scores: { body: 0, mind: 2, soul: 0 }, depth: null },
-      { text: "In my sense of self — who I am, what I'm here for", scores: { body: 0, mind: 0, soul: 2 }, depth: null },
-      { text: "Everywhere equally", scores: { body: 1, mind: 1, soul: 1 }, depth: null },
+      { text: "In the gym, how I look, how I physically perform", scores: { body: 2, mind: 0, soul: 0 }, depth: null, tag: 'cost_physical' },
+      { text: "In my work — decisions, relationships, how I show up", scores: { body: 0, mind: 2, soul: 0 }, depth: null, tag: 'cost_work' },
+      { text: "In my identity — who I am, what I'm here for", scores: { body: 0, mind: 0, soul: 2 }, depth: null, tag: 'cost_self' },
+      { text: "Everywhere — it's bleeding into everything", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'cost_all' },
     ]
   },
   {
     id: 'q4',
     text: "How long has this been building?",
     options: [
-      { text: "Recently — a few months", scores: { body: 0, mind: 0, soul: 0 }, depth: 'low' },
-      { text: "A while — over a year", scores: { body: 0, mind: 0, soul: 0 }, depth: 'medium' },
-      { text: "Long enough that I can't remember feeling different", scores: { body: 0, mind: 0, soul: 0 }, depth: 'high' },
-      { text: "It comes in waves", scores: { body: 0, mind: 0, soul: 0 }, depth: 'medium' },
+      { text: "A few months — it's recent", scores: { body: 0, mind: 0, soul: 0 }, depth: 'low', tag: 'recent' },
+      { text: "Over a year — I've been managing it", scores: { body: 0, mind: 0, soul: 0 }, depth: 'medium', tag: 'managing' },
+      { text: "Long enough that I can't remember feeling different", scores: { body: 0, mind: 0, soul: 0 }, depth: 'high', tag: 'chronic' },
+      { text: "It cycles — good patches, then it comes back", scores: { body: 0, mind: 0, soul: 0 }, depth: 'medium', tag: 'cyclical' },
     ]
   },
   {
     id: 'q5',
-    text: "What have you already attempted?",
+    text: "What best describes where you're at physically right now?",
     options: [
-      { text: "Training programs, diets, supplements", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low' },
-      { text: "Productivity systems, therapy, coaching", scores: { body: 0, mind: 1, soul: 0 }, depth: 'low' },
-      { text: "Retreats, journaling, spiritual practices", scores: { body: 0, mind: 0, soul: 1 }, depth: 'low' },
-      { text: "A bit of everything, nothing stuck", scores: { body: 0, mind: 0, soul: 0 }, depth: 'high' },
+      { text: "I've gained weight and need to lean out — I've tried diets", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'fat_loss' },
+      { text: "I'm underdeveloped — I need to build strength and muscle", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'muscle_build' },
+      { text: "My performance and energy are off — I feel weaker than I should", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'performance' },
+      { text: "I've tried everything across the board — nothing has stuck", scores: { body: 0, mind: 0, soul: 0 }, depth: 'high', tag: 'tried_all' },
     ]
   },
 ];
@@ -59,7 +59,7 @@ function calculateResult(answers) {
   let q4Depth = 'low';
   let q5Depth = 'low';
 
-  QUESTIONS.forEach((q, qIdx) => {
+  QUESTIONS.forEach((q) => {
     const answerIdx = answers[q.id];
     if (answerIdx === undefined) return;
     const option = q.options[answerIdx];
@@ -75,12 +75,18 @@ function calculateResult(answers) {
   const [, secondScore] = sorted[1];
   const gap = topScore - secondScore;
 
-  // Route to Aura if no clear winner and deep
-  if (gap < 3 && q4Depth === 'high' && q5Depth === 'high') {
+  // Clear winner: one pillar >= 3 ahead of both others
+  if (gap >= 3) {
+    const pillarMap = { body: 'apex', mind: 'axon', soul: 'aeon' };
+    return { resultType: pillarMap[topPillar], scores };
+  }
+
+  // No clear winner + deep history = Aura
+  if (q4Depth === 'high' && q5Depth === 'high') {
     return { resultType: 'aura', scores };
   }
 
-  // Route to single pillar
+  // Otherwise: highest score wins. Tie defaults to body (apex).
   const pillarMap = { body: 'apex', mind: 'axon', soul: 'aeon' };
   return { resultType: pillarMap[topPillar], scores };
 }
