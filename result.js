@@ -3,60 +3,57 @@
 const PILLAR_CONFIG = {
   apex: {
     label: 'APEX — BODY',
-    verdict: 'YOUR BODY IS THE BOTTLENECK.',
-    sub: 'This is where your reset starts.',
     ctaCopy: 'Your body is the operating system everything else runs on. When it slips, everything is harder. One conversation changes that.',
-    ctaText: 'BOOK YOUR APEX CALL →',
+    ctaText: 'BOOK YOUR APEX CALL',
     ctaHref: 'https://calendly.com/YOUR_APEX_LINK',
+    stages: ['Foundation', 'Apex 1:1 Coaching', 'Advanced Programming', 'Integration', 'Mastery'],
   },
   axon: {
     label: 'AXON — MIND',
-    verdict: 'YOUR MIND IS THE BOTTLENECK.',
-    sub: 'This is where your reset starts.',
     ctaCopy: 'Your instincts are still there. They are buried under noise. The full analysis shows you exactly where the interference is coming from.',
-    ctaText: 'UNLOCK YOUR FULL ANALYSIS →',
-    ctaHref: null, // paywall
+    ctaText: 'UNLOCK STAGE 2 — READ THE ROOM',
+    ctaHref: null,
+    stages: ['Awareness', 'Read The Room', 'Applied Frameworks', 'Cross-Pillar', 'Mastery'],
   },
   aeon: {
     label: 'AEON — SOUL',
-    verdict: 'YOUR SENSE OF SELF IS THE BOTTLENECK.',
-    sub: 'This is where your reset starts.',
-    ctaCopy: 'You already know something needs to shift. Your full analysis maps exactly what and why — built from your chart and your answers.',
-    ctaText: 'UNLOCK YOUR FULL ANALYSIS →',
-    ctaHref: null, // paywall
+    ctaCopy: 'You already know something needs to shift. Your Blueprint maps exactly what and why.',
+    ctaText: 'UNLOCK STAGE 2 — BLUEPRINT READING',
+    ctaHref: null,
+    stages: ['Mapping', 'Blueprint Reading', 'Alignment Work', 'Embodiment', 'Mastery'],
   },
   aura: {
     label: 'AURA — ALL THREE',
-    verdict: 'THIS GOES DEEPER THAN ONE FIX.',
-    sub: 'Body, mind, and soul. All three are involved.',
     ctaCopy: 'You have tried everything in isolation. Nothing stuck because the problem is not in one place. This conversation is different.',
-    ctaText: 'BOOK YOUR AURA CALL →',
+    ctaText: 'BOOK YOUR AURA CALL',
     ctaHref: 'https://calendly.com/YOUR_AURA_LINK',
+    stages: ['Triage', 'Aura Platinum', 'Full Integration', 'Optimisation', 'Mastery'],
   },
 };
 
 let currentSessionId = null;
 let currentResultType = null;
 
-function renderResult(sessionId, resultType, scores, diagnosis, paywalled) {
+function renderResult(sessionId, resultType, scores, verdict, sub, gameplan, stage2Hook) {
   currentSessionId = sessionId;
   currentResultType = resultType;
 
   const config = PILLAR_CONFIG[resultType];
 
   document.getElementById('result-pillar-label').textContent = config.label;
-  document.getElementById('result-verdict').textContent = config.verdict;
-  document.getElementById('result-sub').textContent = config.sub;
+  document.getElementById('result-verdict').textContent = verdict;
+  document.getElementById('result-sub').textContent = sub;
 
   renderScoreBars(scores);
-  renderDiagnosis(diagnosis, paywalled);
-  renderCTA(config, paywalled);
+  renderGameplan(gameplan);
+  renderStageRoadmap(config.stages);
+  renderCTA(config, stage2Hook);
 
   showScreen('screen-result');
 }
 
 function renderScoreBars(scores) {
-  const maxScore = 9; // max possible per pillar (Q1:3 + Q2:3 + Q3:2 + Q5:1)
+  const maxScore = 10;
   const bars = document.getElementById('score-bars');
   bars.innerHTML = '';
 
@@ -71,73 +68,59 @@ function renderScoreBars(scores) {
   });
 }
 
-function renderDiagnosis(diagnosis, paywalled) {
-  document.getElementById('text-problem').textContent = diagnosis.problem;
+function renderGameplan(gameplan) {
+  const container = document.getElementById('gameplan-moves');
+  container.innerHTML = '';
+  gameplan.forEach((move, i) => {
+    container.innerHTML += `
+      <div class="gameplan-move">
+        <p class="move-number">0${i + 1}</p>
+        <p class="move-title">${move.title}</p>
+        <p class="move-detail">${move.detail}</p>
+      </div>`;
+  });
+}
 
-  if (paywalled) {
-    document.getElementById('block-cause').classList.add('paywall-blur');
-    document.getElementById('block-transformation').classList.add('paywall-blur');
-    document.getElementById('text-cause').textContent = 'This section reveals the root cause driving your situation. Unlock to read.';
-    document.getElementById('text-transformation').textContent = 'This section describes exactly what shifts when the root cause is addressed. Unlock to read.';
-    document.getElementById('paywall-gate').style.display = 'block';
+function renderStageRoadmap(stages) {
+  const container = document.getElementById('stage-roadmap');
+  container.innerHTML = '';
+  stages.forEach((stage, i) => {
+    const cls = i === 0 ? 'unlocked' : 'locked';
+    const dot = i === 0 ? '\u25CF' : '\u25CB';
+    container.innerHTML += `
+      <div class="stage-row ${cls}">
+        <span class="stage-dot">${dot}</span>
+        <span class="stage-number">STAGE ${i + 1}</span>
+        <span class="stage-label">${stage}</span>
+      </div>`;
+  });
+}
+
+function renderCTA(config, stage2Hook) {
+  document.getElementById('stage2-hook').textContent = stage2Hook;
+  document.getElementById('cta-copy').textContent = config.ctaCopy;
+
+  const ctaLink = document.getElementById('cta-link');
+  ctaLink.textContent = config.ctaText;
+
+  if (config.ctaHref) {
+    ctaLink.href = config.ctaHref;
+    ctaLink.onclick = null;
   } else {
-    document.getElementById('block-cause').classList.remove('paywall-blur');
-    document.getElementById('block-transformation').classList.remove('paywall-blur');
-    document.getElementById('text-cause').textContent = diagnosis.cause;
-    document.getElementById('text-transformation').textContent = diagnosis.transformation;
-  }
-}
-
-function renderCTA(config, paywalled) {
-  if (!paywalled) {
-    const block = document.getElementById('cta-block');
-    block.style.display = 'block';
-    document.getElementById('cta-copy').textContent = config.ctaCopy;
-    document.getElementById('cta-link').textContent = config.ctaText;
-    document.getElementById('cta-link').href = config.ctaHref;
-  }
-}
-
-// Unlock button
-document.getElementById('btn-unlock').addEventListener('click', async () => {
-  document.getElementById('btn-unlock').textContent = 'Loading...';
-  document.getElementById('btn-unlock').disabled = true;
-
-  const { checkoutUrl } = await createCheckout(currentSessionId, currentResultType);
-  window.location.href = checkoutUrl;
-});
-
-// Called when returning from Stripe with ?stripe_session= and ?quiz_session= params
-async function handlePaymentReturn() {
-  const params = new URLSearchParams(window.location.search);
-  const stripeSession = params.get('stripe_session');
-  const quizSession = params.get('quiz_session');
-  if (!stripeSession || !quizSession) return;
-
-  showScreen('screen-loading');
-  document.querySelector('#screen-loading p').textContent = 'Verifying payment...';
-
-  const diagnosis = await pollForPayment(quizSession);
-  if (diagnosis) {
-    // Re-fetch result_type from Supabase since JS state was reset on redirect
-    const res = await fetch(
-      `${CONFIG.supabaseUrl}/rest/v1/quiz_responses?id=eq.${quizSession}&select=result_type`,
-      { headers: { 'apikey': CONFIG.supabaseAnonKey, 'Authorization': `Bearer ${CONFIG.supabaseAnonKey}` } }
-    );
-    const rows = await res.json();
-    const resultType = rows[0]?.result_type || 'axon';
-    const config = PILLAR_CONFIG[resultType];
-    document.getElementById('text-cause').textContent = diagnosis.cause;
-    document.getElementById('text-transformation').textContent = diagnosis.transformation;
-    document.getElementById('block-cause').classList.remove('paywall-blur');
-    document.getElementById('block-transformation').classList.remove('paywall-blur');
-    document.getElementById('paywall-gate').style.display = 'none';
-    document.getElementById('cta-block').style.display = 'block';
-    document.getElementById('cta-copy').textContent = config.ctaCopy;
-    document.getElementById('cta-link').textContent = config.ctaText;
-    document.getElementById('cta-link').href = config.ctaHref || '#';
-    showScreen('screen-result');
-    window.history.replaceState({}, '', window.location.pathname);
+    ctaLink.href = '#';
+    ctaLink.onclick = async (e) => {
+      e.preventDefault();
+      ctaLink.textContent = 'Loading...';
+      ctaLink.style.pointerEvents = 'none';
+      try {
+        const { checkoutUrl } = await createCheckout(currentSessionId, currentResultType);
+        window.location.href = checkoutUrl;
+      } catch (err) {
+        ctaLink.textContent = config.ctaText;
+        ctaLink.style.pointerEvents = '';
+        alert('Error: ' + err.message);
+      }
+    };
   }
 }
 
@@ -145,12 +128,17 @@ async function handlePaymentReturn() {
 async function submitAndRender(email, answers, scores, resultType) {
   try {
     const data = await generateResult(email, answers, scores, resultType);
-    renderResult(data.sessionId, data.resultType, data.scores, data.diagnosis, data.paywalled);
+    renderResult(
+      data.sessionId,
+      data.resultType,
+      data.scores,
+      data.verdict,
+      data.sub,
+      data.gameplan,
+      data.stage2_hook
+    );
   } catch (e) {
     showScreen('screen-landing');
     alert('Error: ' + e.message);
   }
 }
-
-// Check for payment return on page load
-handlePaymentReturn();
