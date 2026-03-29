@@ -3,22 +3,22 @@
 const QUESTIONS = [
   {
     id: 'q1',
-    text: "Where have you lost the most ground?",
-    options: [
-      { text: "My body. Softer, slower, less in control than I used to be.", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_general' },
-      { text: "My mind. The edge is gone. Reactive, scattered, not the sharpest guy in the room anymore.", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_general' },
-      { text: "My sense of self. I built the life. Lost the point somewhere along the way.", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_general' },
-      { text: "All three. I'm not operating at the level I know I'm capable of.", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
-    ]
-  },
-  {
-    id: 'q2',
     text: "What does getting back to your peak actually look like?",
     options: [
       { text: "A body that performs. Lean, strong, back in control of how I look and feel.", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_performance' },
       { text: "My edge back. Sharp decisions, clear thinking, commanding the room again.", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_clarity' },
       { text: "A clear mission. Knowing what I'm building and why it still matters.", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_direction' },
       { text: "All three firing together. The full version of me, back online.", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
+    ]
+  },
+  {
+    id: 'q2',
+    text: "Where have you lost the most ground?",
+    options: [
+      { text: "My body. Softer, slower, less in control than I used to be.", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_general' },
+      { text: "My mind. The edge is gone. Reactive, scattered, not the sharpest guy in the room anymore.", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_general' },
+      { text: "My sense of self. I built the life. Lost the point somewhere along the way.", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_general' },
+      { text: "All three. I'm not operating at the level I know I'm capable of.", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
     ]
   },
   {

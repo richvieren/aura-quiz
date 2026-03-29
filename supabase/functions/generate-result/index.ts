@@ -37,8 +37,8 @@ Rules:
 - Be specific to the context tags provided. Same result type with different tags should produce different moves.`;
 
 const QUESTIONS = [
-  "Where have you lost the most ground?",
   "What does getting back to your peak actually look like?",
+  "Where have you lost the most ground?",
   "Where is the gap costing you most?",
   "How long have you been running below your potential?",
   "Where are you physically right now?",
@@ -46,16 +46,16 @@ const QUESTIONS = [
 
 const ANSWER_OPTIONS = [
   [
-    "My body. Softer, slower, less in control than I used to be.",
-    "My mind. The edge is gone. Reactive, scattered, not the sharpest guy in the room anymore.",
-    "My sense of self. I built the life. Lost the point somewhere along the way.",
-    "All three. I'm not operating at the level I know I'm capable of.",
-  ],
-  [
     "A body that performs. Lean, strong, back in control of how I look and feel.",
     "My edge back. Sharp decisions, clear thinking, commanding the room again.",
     "A clear mission. Knowing what I'm building and why it still matters.",
     "All three firing together. The full version of me, back online.",
+  ],
+  [
+    "My body. Softer, slower, less in control than I used to be.",
+    "My mind. The edge is gone. Reactive, scattered, not the sharpest guy in the room anymore.",
+    "My sense of self. I built the life. Lost the point somewhere along the way.",
+    "All three. I'm not operating at the level I know I'm capable of.",
   ],
   [
     "In how I look and perform physically. I'm not the guy I was.",
@@ -78,8 +78,8 @@ const ANSWER_OPTIONS = [
 ];
 
 const CONTEXT_TAGS = [
-  ['body_general', 'mind_general', 'soul_general', 'all'],
   ['body_performance', 'mind_clarity', 'soul_direction', 'all'],
+  ['body_general', 'mind_general', 'soul_general', 'all'],
   ['cost_physical', 'cost_work', 'cost_self', 'cost_all'],
   ['recent', 'managing', 'chronic', 'cyclical'],
   ['fat_loss', 'muscle_build', 'performance', 'tried_all'],
