@@ -5,7 +5,7 @@ const PILLAR_CONFIG = {
     label: 'APEX — BODY',
     ctaCopy: 'Your body is the operating system everything else runs on. When it slips, everything is harder. One conversation changes that.',
     ctaText: 'BOOK YOUR APEX CALL',
-    ctaHref: 'https://calendly.com/YOUR_APEX_LINK',
+    ctaHref: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2x5Q59LpeLh0Cl9OIyi8XhfuZeCuscIGN9E1TN557-F9IiTW3X0tjnxWibhDWEehUw9hVxSiev',
     stages: ['Foundation', 'Apex 1:1 Coaching', 'Advanced Programming', 'Integration', 'Mastery'],
   },
   axon: {
@@ -26,7 +26,7 @@ const PILLAR_CONFIG = {
     label: 'AURA — ALL THREE',
     ctaCopy: 'You have tried everything in isolation. Nothing stuck because the problem is not in one place. This conversation is different.',
     ctaText: 'BOOK YOUR AURA CALL',
-    ctaHref: 'https://calendly.com/YOUR_AURA_LINK',
+    ctaHref: 'https://calendar.app.google/bUEvWFg1um2Sgocy5',
     stages: ['Triage', 'Aura Platinum', 'Full Integration', 'Optimisation', 'Mastery'],
   },
 };
