@@ -57,35 +57,19 @@
     <!-- Score bars -->
     <div class="score-bars" id="score-bars"></div>
 
-    <!-- Diagnosis -->
-    <div class="diagnosis" id="diagnosis">
-      <div class="diagnosis-block" id="block-problem">
-        <p class="block-label">THE PROBLEM</p>
-        <p class="block-text" id="text-problem"></p>
-      </div>
-      <div class="diagnosis-block paywall-blur" id="block-cause">
-        <p class="block-label">THE CAUSE</p>
-        <p class="block-text" id="text-cause"></p>
-      </div>
-      <div class="diagnosis-block paywall-blur" id="block-transformation">
-        <p class="block-label">WHAT CHANGES</p>
-        <p class="block-text" id="text-transformation"></p>
-      </div>
-    </div>
+    <!-- Gameplan -->
+    <p class="section-divider">&#8212; YOUR STAGE 1 GAMEPLAN &#8212;</p>
+    <div class="gameplan-moves" id="gameplan-moves"></div>
 
-    <!-- Paywall (shown for Axon/Aeon before payment) -->
-    <div class="paywall-gate" id="paywall-gate" style="display:none">
-      <p class="paywall-copy">The cause and the path forward are locked.</p>
-      <button class="btn-primary" id="btn-unlock">Unlock your full diagnosis</button>
-    </div>
+    <!-- Stage roadmap -->
+    <p class="section-divider">&#8212; YOUR TRAJECTORY &#8212;</p>
+    <div class="stage-roadmap" id="stage-roadmap"></div>
 
-    <!-- Stripe payment element (injected after unlock click) -->
-    <div id="payment-element-container" style="display:none"></div>
-
-    <!-- CTA -->
-    <div class="cta-block" id="cta-block" style="display:none">
+    <!-- Stage 2 hook + CTA -->
+    <div class="cta-block" id="cta-block">
+      <p class="stage2-hook" id="stage2-hook"></p>
       <p class="cta-copy" id="cta-copy"></p>
-      <a class="btn-primary" id="cta-link" href="#">→</a>
+      <a class="btn-primary" id="cta-link" href="#">&#8594;</a>
     </div>
 
     <!-- Skool downsell — always visible on result screen -->
