@@ -37,43 +37,43 @@ Rules:
 - Be specific to the context tags provided. Same result type with different tags should produce different moves.`;
 
 const QUESTIONS = [
-  "What's actually draining you most right now?",
-  "What would a win look like?",
-  "Where is it showing up most?",
-  "How long has this been building?",
-  "What best describes where you're at physically right now?",
+  "Where have you lost the most ground?",
+  "What does getting back to your peak actually look like?",
+  "Where is the gap costing you most?",
+  "How long have you been running below your potential?",
+  "Where are you physically right now?",
 ];
 
 const ANSWER_OPTIONS = [
   [
-    "My body -- low energy, carrying weight, not training consistently",
-    "My head -- can't switch off, reactive, losing sharpness",
-    "My sense of self -- successful on paper, but something's missing",
-    "All of it -- nothing feels dialed in",
+    "My body. Softer, slower, less in control than I used to be.",
+    "My mind. The edge is gone. Reactive, scattered, not the sharpest guy in the room anymore.",
+    "My sense of self. I built the life. Lost the point somewhere along the way.",
+    "All three. I'm not operating at the level I know I'm capable of.",
   ],
   [
-    "Leaner, stronger, performing physically -- I want my body as an asset",
-    "Clearer thinking, better decisions, more presence in the room",
-    "A clear direction -- understanding what I'm actually building toward",
-    "The full reset -- all three working together",
+    "A body that performs. Lean, strong, back in control of how I look and feel.",
+    "My edge back. Sharp decisions, clear thinking, commanding the room again.",
+    "A clear mission. Knowing what I'm building and why it still matters.",
+    "All three firing together. The full version of me, back online.",
   ],
   [
-    "In the gym, how I look, how I physically perform",
-    "In my work -- decisions, relationships, how I show up",
-    "In my identity -- who I am, what I'm here for",
-    "Everywhere -- it's bleeding into everything",
+    "In how I look and perform physically. I'm not the guy I was.",
+    "At work. My decisions, my presence, the energy I bring to the room.",
+    "In who I am. I don't fully recognise the man I've become.",
+    "Everywhere. It's bleeding into every part of my life.",
   ],
   [
-    "A few months -- it's recent",
-    "Over a year -- I've been managing it",
-    "Long enough that I can't remember feeling different",
-    "It cycles -- good patches, then it comes back",
+    "A few months. It's recent.",
+    "Over a year. Managing it and telling myself it's fine.",
+    "Long enough that I can't remember my last real peak.",
+    "It comes and goes. Good patches, then it falls apart again.",
   ],
   [
-    "I've gained weight and need to lean out -- I've tried diets",
-    "I'm underdeveloped -- I need to build strength and muscle",
-    "My performance and energy are off -- I feel weaker than I should",
-    "I've tried everything across the board -- nothing has stuck",
+    "Carrying too much. I need to cut and get lean again.",
+    "Smaller and weaker than I should be. I need to rebuild.",
+    "Performance is off. Energy, output, recovery are all down.",
+    "I've tried everything. Nothing has stuck and I'm still not where I was.",
   ],
 ];
 

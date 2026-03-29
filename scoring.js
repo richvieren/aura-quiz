@@ -3,52 +3,52 @@
 const QUESTIONS = [
   {
     id: 'q1',
-    text: "What's actually draining you most right now?",
+    text: "Where have you lost the most ground?",
     options: [
-      { text: "My body — low energy, carrying weight, not training consistently", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_general' },
-      { text: "My head — can't switch off, reactive, losing sharpness", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_general' },
-      { text: "My sense of self — successful on paper, but something's missing", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_general' },
-      { text: "All of it — nothing feels dialed in", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
+      { text: "My body. Softer, slower, less in control than I used to be.", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_general' },
+      { text: "My mind. The edge is gone. Reactive, scattered, not the sharpest guy in the room anymore.", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_general' },
+      { text: "My sense of self. I built the life. Lost the point somewhere along the way.", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_general' },
+      { text: "All three. I'm not operating at the level I know I'm capable of.", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
     ]
   },
   {
     id: 'q2',
-    text: "What would a win look like?",
+    text: "What does getting back to your peak actually look like?",
     options: [
-      { text: "Leaner, stronger, performing physically — I want my body as an asset", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_performance' },
-      { text: "Clearer thinking, better decisions, more presence in the room", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_clarity' },
-      { text: "A clear direction — understanding what I'm actually building toward", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_direction' },
-      { text: "The full reset — all three working together", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
+      { text: "A body that performs. Lean, strong, back in control of how I look and feel.", scores: { body: 3, mind: 0, soul: 0 }, depth: null, tag: 'body_performance' },
+      { text: "My edge back. Sharp decisions, clear thinking, commanding the room again.", scores: { body: 0, mind: 3, soul: 0 }, depth: null, tag: 'mind_clarity' },
+      { text: "A clear mission. Knowing what I'm building and why it still matters.", scores: { body: 0, mind: 0, soul: 3 }, depth: null, tag: 'soul_direction' },
+      { text: "All three firing together. The full version of me, back online.", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'all' },
     ]
   },
   {
     id: 'q3',
-    text: "Where is it showing up most?",
+    text: "Where is the gap costing you most?",
     options: [
-      { text: "In the gym, how I look, how I physically perform", scores: { body: 2, mind: 0, soul: 0 }, depth: null, tag: 'cost_physical' },
-      { text: "In my work — decisions, relationships, how I show up", scores: { body: 0, mind: 2, soul: 0 }, depth: null, tag: 'cost_work' },
-      { text: "In my identity — who I am, what I'm here for", scores: { body: 0, mind: 0, soul: 2 }, depth: null, tag: 'cost_self' },
-      { text: "Everywhere — it's bleeding into everything", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'cost_all' },
+      { text: "In how I look and perform physically. I'm not the guy I was.", scores: { body: 2, mind: 0, soul: 0 }, depth: null, tag: 'cost_physical' },
+      { text: "At work. My decisions, my presence, the energy I bring to the room.", scores: { body: 0, mind: 2, soul: 0 }, depth: null, tag: 'cost_work' },
+      { text: "In who I am. I don't fully recognise the man I've become.", scores: { body: 0, mind: 0, soul: 2 }, depth: null, tag: 'cost_self' },
+      { text: "Everywhere. It's bleeding into every part of my life.", scores: { body: 1, mind: 1, soul: 1 }, depth: null, tag: 'cost_all' },
     ]
   },
   {
     id: 'q4',
-    text: "How long has this been building?",
+    text: "How long have you been running below your potential?",
     options: [
-      { text: "A few months — it's recent", scores: { body: 0, mind: 0, soul: 0 }, depth: 'low', tag: 'recent' },
-      { text: "Over a year — I've been managing it", scores: { body: 0, mind: 0, soul: 0 }, depth: 'medium', tag: 'managing' },
-      { text: "Long enough that I can't remember feeling different", scores: { body: 0, mind: 0, soul: 0 }, depth: 'high', tag: 'chronic' },
-      { text: "It cycles — good patches, then it comes back", scores: { body: 0, mind: 0, soul: 0 }, depth: 'medium', tag: 'cyclical' },
+      { text: "A few months. It's recent.", scores: { body: 0, mind: 0, soul: 0 }, depth: 'low', tag: 'recent' },
+      { text: "Over a year. Managing it and telling myself it's fine.", scores: { body: 0, mind: 0, soul: 0 }, depth: 'medium', tag: 'managing' },
+      { text: "Long enough that I can't remember my last real peak.", scores: { body: 0, mind: 0, soul: 0 }, depth: 'high', tag: 'chronic' },
+      { text: "It comes and goes. Good patches, then it falls apart again.", scores: { body: 0, mind: 0, soul: 0 }, depth: 'medium', tag: 'cyclical' },
     ]
   },
   {
     id: 'q5',
-    text: "What best describes where you're at physically right now?",
+    text: "Where are you physically right now?",
     options: [
-      { text: "I've gained weight and need to lean out — I've tried diets", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'fat_loss' },
-      { text: "I'm underdeveloped — I need to build strength and muscle", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'muscle_build' },
-      { text: "My performance and energy are off — I feel weaker than I should", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'performance' },
-      { text: "I've tried everything across the board — nothing has stuck", scores: { body: 0, mind: 0, soul: 0 }, depth: 'high', tag: 'tried_all' },
+      { text: "Carrying too much. I need to cut and get lean again.", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'fat_loss' },
+      { text: "Smaller and weaker than I should be. I need to rebuild.", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'muscle_build' },
+      { text: "Performance is off. Energy, output, recovery are all down.", scores: { body: 1, mind: 0, soul: 0 }, depth: 'low', tag: 'performance' },
+      { text: "I've tried everything. Nothing has stuck and I'm still not where I was.", scores: { body: 0, mind: 0, soul: 0 }, depth: 'high', tag: 'tried_all' },
     ]
   },
 ];
