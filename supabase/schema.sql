@@ -25,3 +25,10 @@ create policy "Allow anon select by id"
   using (true);
 
 -- Edge functions will use service role key (bypasses RLS)
+
+-- V2 migration (2026-03-29)
+alter table quiz_responses
+  add column if not exists context_tags jsonb;
+
+alter table quiz_responses
+  rename column diagnosis to gameplan;
